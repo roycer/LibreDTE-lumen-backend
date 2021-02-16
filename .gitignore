@@ -1,0 +1,11 @@
+/mysql
+/vendor
+/resources
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+*.lock
+phpunit.xml
+*.php___jb_tmp___
+resources/dinamic

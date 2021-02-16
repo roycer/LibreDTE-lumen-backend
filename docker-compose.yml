@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+
+# dte
+  
+  my_back_dte:
+    image: php720:1.4
+    ports:
+      - 8888:8080
+    volumes:
+      - ./:/home
+    depends_on: 
+      - my_dbs_dte
+    networks:
+      default:
+        aliases:
+          - back_dte
+  
+  my_dbs_dte:
+    image: postgres:13
+    restart: always
+    ports:
+      - 5442:5432
+#    volumes:
+#      - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: my_dbs_dte
+      POSTGRES_DB: my_dbs_dte
+    networks:
+      default:
+        aliases:
+          - dbs_dte
+  
+networks:
+  default:
